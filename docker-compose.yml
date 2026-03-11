@@ -13,6 +13,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-mydb}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./backend/model/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
     ports:
       - "5432:5432"
     networks:
